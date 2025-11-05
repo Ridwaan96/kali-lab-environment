@@ -1,1 +1,52 @@
+# Kali Linux VM Installation Guide
 
+This guide documents how I installed and configured Kali Linux in a virtual machine for cybersecurity labs, including TryHackMe challenges and forensic projects.
+
+## Host System Requirements
+
+- OS: Windows 11
+- RAM: Minimum 8 GB (recommended 16 GB)
+- Virtualization: Enabled in BIOS
+- Virtualization Software: VirtualBox / VMware Workstation / Hyper-V
+
+## Downloading Kali Linux
+
+- Go to [Kali Linux Downloads](https://www.kali.org/get-kali/)
+- Choose the **Virtual Machines** tab
+- Download the prebuilt image for your hypervisor (e.g., VirtualBox OVA)
+
+## Importing the VM
+
+### For VirtualBox:
+1. Open VirtualBox
+2. Go to `File > Import Appliance`
+3. Select the `.ova` file
+4. Customize settings (RAM, CPU, Network)
+5. Click `Import`
+
+### For VMware:
+1. Open VMware Workstation
+2. Go to `File > Open`
+3. Select the `.ova` file
+4. Follow the prompts to finish setup
+
+## Initial Configuration
+
+- Username: kali
+- Password: kali
+- Update system:
+  ```bash
+  sudo apt update && sudo apt upgrade -y
+
+sudo apt install net-tools openvpn curl git -y
+
+
+###  VPN Setup for TryHackMe
+
+```markdown
+## VPN Setup for TryHackMe
+
+1. Download your `.ovpn` config from TryHackMe
+2. Connect using:
+   ```bash
+   sudo openvpn --config your-config.ovpn
